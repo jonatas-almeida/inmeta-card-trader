@@ -1,0 +1,9 @@
+<div
+    [id]="this.id"
+    *ngIf="this.alertService.getAlertShow()"
+    class="alert-container {{ this.alertService.getAlertKind()}}">
+    <div class="alert-wrapper">
+        <label>{{ this.alertService.getAlertLabel() }}</label>
+        <p>{{ this.alertService.getAlertDescription() }}</p>
+    </div>
+</div>

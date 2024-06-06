@@ -1,0 +1,36 @@
+<div class="register-container">
+    <form [formGroup]="this.registerForm" class="register-form-container">
+        <h1><span>_</span>registrar</h1>
+        <hr class="divider"/>
+        <div class="form-input-actions">
+            <app-input
+                label="Nome:"
+                formControlName="name"></app-input>
+            <app-input
+                label="E-mail:"
+                type="email"
+                formControlName="email"></app-input>
+
+            <div class="form-password-actions">
+                <app-input
+                    label="Senha:"
+                    type="password"
+                    formControlName="password"></app-input>
+                <app-input
+                    label="Confirmar senha:"
+                    type="password"
+                    (onInput)="this.verifyPasswordMatch($event)"></app-input>
+            </div>
+
+            <div class="form-button-actions">
+                <app-button
+                    label="Cadastrar"
+                    (onClick)="this.createNewUser()"></app-button>
+                <app-button
+                    label="Voltar"
+                    kind="secondary"
+                    (onClick)="this.router.navigateByUrl('/auth/login')"></app-button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+.button-container {
+    width: 100%;
+    padding: 10px;
+
+    border: none;
+    border-radius: 5px;
+    color: var(--app-secondary-text-color);
+
+    font-size: 12pt;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.primary {
+    background-color: var(--app-primary-background-color);
+
+    &:hover {
+        background-color: var(--app-primary-background-color-hover);
+    }
+}
+
+.secondary {
+    background-color: transparent;
+    outline: 1px solid var(--app-primary-background-color);
+    color: var(--app-primary-background-color);
+
+    &:hover {
+        background-color: var(--app-primary-background-color);
+        color: var(--app-secondary-text-color);
+    }
+}
+
+.tertiary {
+    background-color: var(--app-tertiary-background-color);
+    color: var(--app-primary-background-color);
+
+    &:hover {
+        background-color: var(--app-tertiary-background-color-hover);
+    }
+}

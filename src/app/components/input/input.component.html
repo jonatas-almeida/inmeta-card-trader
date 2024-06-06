@@ -1,0 +1,12 @@
+<div class="input-container {{ this.className }}">
+    <label>{{ this.label }}</label>
+    <input 
+        class="input"
+        [placeholder]="this.placeholder"
+        [value]="this.value"
+        [type]="this.type"
+        (click)="this.onClick.emit($event)"
+        (input)="onInputChange($event)"
+        (blur)="this.onBlurEvent()"
+        (focus)="this.onFocus.emit($event)"/>
+</div>

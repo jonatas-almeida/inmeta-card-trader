@@ -1,0 +1,24 @@
+<div class="login-container">
+    <form [formGroup]="this.loginForm" class="login-form">
+        <h1><span>_</span>login</h1>
+        <hr class="divider"/>
+        <div class="form-input-actions">
+            <app-input
+                label="E-mail:"
+                formControlName="email"></app-input>
+            <app-input
+                label="Senha:"
+                type="password"
+                formControlName="password"></app-input>
+        </div>
+        <div class="form-button-actions">
+            <app-button 
+                label="Entrar"
+                (onClick)="this.loginUser()"></app-button>
+            <app-button 
+                label="Cadastrar"
+                kind="secondary"
+                (onClick)="this.router.navigateByUrl('/auth/register')"></app-button>
+        </div>
+    </form>
+</div>

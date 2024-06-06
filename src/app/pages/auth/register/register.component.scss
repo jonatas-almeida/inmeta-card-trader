@@ -1,0 +1,51 @@
+.register-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .register-form-container {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 30px;
+
+        border: none;
+        border-radius: 10px;
+        background-color: var(--app-form-background-color);
+        box-shadow: var(--app-box-shadow);
+
+        h1 {
+            font-size: 32pt;
+            color: var(--app-primary-text-color);
+
+            span {
+                color: #009264;
+            }
+        }
+
+        .form-input-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .form-password-actions {
+                width: 100%;
+                display: flex;
+                gap: 10px;
+            }
+
+            .form-button-actions {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 50px;
+            }
+        }
+    }
+}
