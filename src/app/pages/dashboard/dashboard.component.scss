@@ -107,3 +107,36 @@
         }
     }
 }
+
+.modal-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--app-form-background-color);
+    overflow-y: auto;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 30px;
+
+    .cards {
+        width: 200px;
+        height: 280px;
+
+        border: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        transition: all .2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}

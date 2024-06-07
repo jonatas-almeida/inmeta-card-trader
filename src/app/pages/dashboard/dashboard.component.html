@@ -34,10 +34,24 @@
                 <button class="card blank-card">
                     +
                 </button>
-                <div class="card">
-
+                <div 
+                    class="card" 
+                    *ngFor="let card of userCards; index as index;"
+                    [ngStyle]="{ 'background-image': 'url(' + card.imageUrl + ')' }">
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal-container">
+    <div 
+        *ngFor="let savedCard of allCards; index as index;"
+        class="cards"
+        [ngStyle]="{
+            'background-image': 'url(' + savedCard.imageUrl + ')'
+        }"
+        (click)="this.selectCards(savedCard)">
+        
     </div>
 </div>
