@@ -1,5 +1,7 @@
 <!-- Componente de Navbar -->
-<app-navbar [menuItems]="this.menuItemList"></app-navbar>
+<app-navbar 
+    *ngIf="this.cookieService.get('token')"
+    [menuItems]="this.menuItemList"></app-navbar>
 
 <router-outlet></router-outlet>
 

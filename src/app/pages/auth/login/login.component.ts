@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InputComponent } from '../../../components/input/input.component';
 import { ButtonComponent } from '../../../components/button/button.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import Login from '../../../interfaces/Login';
 import { AlertService } from '../../../components/alert/alert.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -19,13 +19,14 @@ import { AlertService } from '../../../components/alert/alert.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
 
   constructor(
     private authService: AuthService,
     private alertService: AlertService,
+    private cookieService: CookieService,
     private fb: FormBuilder,
     public router: Router
   ) {
@@ -35,10 +36,17 @@ export class LoginComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.cookieService.delete('token');
+  }
+
   // Faz o login do usuário
   async loginUser(): Promise<void> {
     if(this.loginForm.valid) {
       this.authService.loginUser(this.loginForm.value).subscribe((res) => {
+        this.setUserToken(res.token ?? '');
+
+        this.router.navigateByUrl('/dashboard');
         this.alertService.open({
             id: 'alert-component',
             label: 'Sucesso!',
@@ -62,5 +70,12 @@ export class LoginComponent {
         kind: "warning"
       });
     }
+  }
+
+  private setUserToken(token: string): void {
+    this.cookieService.set('token', token, {
+      secure: true,
+      sameSite: 'Strict'
+    });
   }
 }
