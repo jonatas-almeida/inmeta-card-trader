@@ -1,0 +1,10 @@
+<nav class="navbar-container">
+    <h1>_logo</h1>
+    <ul class="navbar-menu">
+        <li
+            *ngFor="let item of menuItems; index as index;"
+            (click)="this.router.navigateByUrl(item.route)">
+            {{ item.label }}
+        </li>
+    </ul>
+</nav>

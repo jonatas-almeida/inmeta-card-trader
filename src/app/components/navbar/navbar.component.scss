@@ -1,0 +1,41 @@
+.navbar-container {
+    width: 100%;
+    padding: 15px 100px;
+    background-color: var(--app-primary-background-color);
+    box-shadow: var(--app-box-shadow);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        color: var(--app-secondary-text-color);
+    }
+
+    .navbar-menu {
+        width: 100%;
+        max-width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        list-style: none;
+
+        li {
+            font-size: 12pt;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--app-secondary-text-color);
+            transition: all .2s;
+
+            &:hover {
+                color: var(--app-tertiary-background-color);
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+.dashboard-container {
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+
+    .dashboard-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .dashboard-title {
+            font-size: 24pt;
+            color: var(--app-primary-text-color);
+        }
+
+        .dashboard-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .dashboard-button {
+                width: 30px;
+                height: 30px;
+                border: none;
+                border-radius: 50%;
+                background-color: var(--app-tertiary-background-color);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .dashboard-content {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .dashboard-card-section {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 20px;
+            margin-top: 20px;
+
+            .dashboard-card {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h3 {
+                    font-size: 16pt;
+                    color: var(--app-secondary-text-color);
+                }
+
+                p {
+                    font-size: 32pt;
+                    font-weight: bold;
+                    color: var(--app-primary-text-color);
+                }
+            }
+        }
+
+        .dashboard-inventory-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+
+            h2 {
+                color: var(--app-secondary-text-color);
+            }
+
+            .dashboard-current-inventory {
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-top: 10px;
+                gap: 20px;
+
+                .card {
+                    width: 250px;
+                    height: 350px;
+                    background-color: #f2f2f2;
+                    border: none;
+                    border-radius: 10px;
+                    transition: all .2s;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+
+                .blank-card {
+                    background-color: var(--app-form-background-color);
+                    cursor: pointer;
+                    font-size: 80pt;
+                    color: var(--app-primary-text-color);
+
+                    &:hover {
+                        transform: scale(1.0);
+                    }
+                }
+            }
+        }
+    }
+}
