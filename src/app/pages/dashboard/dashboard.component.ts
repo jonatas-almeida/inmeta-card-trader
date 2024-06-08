@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
   // Retorna as cartas do usuário atual
   async getCurrentUserCards(): Promise<void> {
     this.userService.getUserCards().subscribe((res) => {
-      this.userCards = res;
+      this.userCards = res.reverse();
     }, error => {
       console.log(error);
     });
@@ -68,6 +68,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // Adiciona as cartas para o usuário
   async addCards(): Promise<void> {
     const payload = {
       cardIds: this.selectedCards
