@@ -4,4 +4,5 @@ export default interface UserCards {
     description: string;
     imageUrl: string;
     createdAt: string;
+    isActive?: boolean;
 }

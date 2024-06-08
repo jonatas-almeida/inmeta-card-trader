@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --app-background-color: #f2f2f2;
-    --app-form-background-color: #ffffff;
+    --app-background-color: #fff;
+    --app-form-background-color: #fff;
     --app-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 
     --app-primary-background-color: #ff6600;
@@ -22,6 +22,11 @@
 @font-face {
     font-family: AppStandardFont;
     src: url("./assets/fonts/Nunito-Regular.ttf");
+}
+
+@font-face {
+    font-family: AppSecondaryFont;
+    src: url("./assets/fonts/Lora/Lora-Regular.ttf");
 }
 
 * {
@@ -48,4 +53,24 @@ body {
     border: none;
     border-radius: 5px;
     margin: 15px 0px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d1d1d1;
+    border-radius: 35px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #009264;
+    transition: all .2s;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #025c3f;
 }

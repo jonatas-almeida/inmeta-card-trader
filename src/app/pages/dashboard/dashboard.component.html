@@ -10,7 +10,7 @@
             <app-card>
                 <div class="dashboard-card">
                     <h3>Total de cartas</h3>
-                    <p>15</p>
+                    <p>{{ this.userCards.length }}</p>
                 </div>
             </app-card>
             <app-card>
@@ -28,30 +28,38 @@
         </div>
 
         <div class="dashboard-inventory-container">
-            <h2>Todas as cartas</h2>
+            <h2>Suas cartas</h2>
             <hr class="divider"/>
             <div class="dashboard-current-inventory">
-                <button class="card blank-card">
-                    +
-                </button>
-                <div 
+                <img 
                     class="card" 
                     *ngFor="let card of userCards; index as index;"
-                    [ngStyle]="{ 'background-image': 'url(' + card.imageUrl + ')' }">
-                </div>
+                    [src]="card.imageUrl"/>
             </div>
         </div>
     </div>
 </div>
 
-<!-- <div class="modal-container">
-    <div 
+<div class="modal-container" *ngIf="this.modalOpen">
+    <h3>Selecione as cartas</h3>
+    <div class="modal-cards-container">
+        <img 
         *ngFor="let savedCard of allCards; index as index;"
-        class="cards"
-        [ngStyle]="{
-            'background-image': 'url(' + savedCard.imageUrl + ')'
-        }"
-        (click)="this.selectCards(savedCard)">
-        
+        class="cards {{ savedCard.isActive ? 'active' : '' }}"
+        [src]="savedCard.imageUrl"
+        (click)="this.selectCards(savedCard, index)"/>
     </div>
-</div> -->
+    <div class="modal-cards-footer">
+        <app-button
+            label="Adicionar cartas"
+            (onClick)="this.addCards()"></app-button>
+        <app-button
+            label="Cancelar"
+            kind="secondary"
+            (onClick)="this.modalOpen = false;"></app-button>
+    </div>
+</div>
+
+<button class="btn-add-card blank-card" (click)="this.modalOpen = true;">
+    +
+</button>

@@ -28,7 +28,7 @@ export class UserService {
     return this.http.get<[UserCards]>(`${this._baseUrl}/me/cards`);
   }
 
-  public addUserCard(cards: { cardsIds: [] }): Observable<any> {
+  public addUserCard(cards: { cardIds: any[] }): Observable<any> {
     return this.http.post(`${this._baseUrl}/me/cards`, cards);
   }
 }
