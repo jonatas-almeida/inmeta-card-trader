@@ -52,13 +52,13 @@
 
                 h3 {
                     font-size: 16pt;
-                    color: var(--app-secondary-text-color);
+                    color: var(--app-primary-text-color);
                 }
 
                 p {
                     font-size: 32pt;
                     font-weight: bold;
-                    color: var(--app-primary-text-color);
+                    color: #222;
                 }
             }
         }
@@ -70,7 +70,7 @@
             margin-top: 30px;
 
             h2 {
-                color: var(--app-secondary-text-color);
+                color: var(--app-primary-text-color);
             }
 
             .dashboard-current-inventory {
@@ -88,6 +88,7 @@
                     border-radius: 10px;
                     transition: all .2s;
                     cursor: pointer;
+                    box-shadow: var(--app-box-shadow);
                     
                     &:hover {
                         transform: scale(1.05);
@@ -111,7 +112,7 @@
 .modal-container {
     width: 100%;
     height: 100%;
-    background-color: var(--app-form-background-color);
+    background-color: rgba($color: #000000, $alpha: 0.7);
     overflow-y: auto;
 
     position: fixed;
@@ -120,7 +121,6 @@
     z-index: 99;
 
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
     padding: 30px;
     gap: 30px;

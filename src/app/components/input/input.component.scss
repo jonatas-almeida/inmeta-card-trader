@@ -6,17 +6,18 @@
 
     label {
         font-size: 12pt;
-        color: #d3d3d3;
+        color: #222;
     }
 
     .input {
         width: 100%;
         padding: 10px;
-        background-color: #222;
-        color: #d3d3d3;
+        background-color: #f2f2f2;
+        color: #222;
         border: none;
         border-radius: 5px;
         font-size: 12pt;
+        outline: 2px solid #c2c2c2;
 
         &:focus {
             outline: 2px solid #ff6600;
