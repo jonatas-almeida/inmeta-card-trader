@@ -30,7 +30,7 @@ export class AppComponent implements DoCheck {
       route: "/dashboard"
     },
     {
-      label: "Trades abertas",
+      label: "Trades",
       route: "/trades"
     }
   )

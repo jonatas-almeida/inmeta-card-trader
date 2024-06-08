@@ -179,13 +179,13 @@
 .btn-add-card {
     width: 60px;
     height: 60px;
-    background-color: #fff;
+    background-color: var(--app-primary-background-color);
     border: none;
     border-radius: 50%;
     box-shadow: var(--app-box-shadow);
 
     font-size: 24pt;
-    color: var(--app-primary-text-color);
+    color: var(--app-secondary-text-color);
     cursor: pointer;
     transition: all .2s;
 
