@@ -26,8 +26,12 @@ export class AppComponent implements DoCheck {
   // Popula os items do menu da Navbar
   menuItemList = new Array(
     {
+      label: "Dashboard",
+      route: "/dashboard"
+    },
+    {
       label: "Trades abertas",
-      route: "/"
+      route: "/trades"
     }
   )
 }

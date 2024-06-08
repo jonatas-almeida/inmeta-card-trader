@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   userCards = new Array<UserCards>();
   allCards = new Array();
   selectedCards = new Array();
+  trades = new Array();
   modalOpen: boolean = false;
 
   constructor(
@@ -37,6 +38,7 @@ export class DashboardComponent implements OnInit {
     this.userService.getUserInformation().subscribe((res) => {
       this.user = res;
       this.getCurrentUserCards();
+      this.getTrades();
     }, error => {
       console.log(error);
     });
@@ -53,7 +55,7 @@ export class DashboardComponent implements OnInit {
 
   // Retorna todas as cartas registradas no sistema
   async getAllCards(): Promise<void> {
-    this.userService.getAllCards(10, 1).subscribe((res) => {
+    this.userService.getAllCards(30, 1).subscribe((res) => {
       if(res.list) {
         for(let i = 0; i < res.list.length; i++) {
           Object.assign(res.list[i], { isActive: false });
@@ -83,6 +85,14 @@ export class DashboardComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  async getTrades(): Promise<void> {
+    this.userService.getAllTrades(10, 1).subscribe((res) => {
+      this.trades = res.list;
+    }, error => {
+      console.log(error);
+    });
   }
 
   // Seleciona as cartas e popula o Array para adicionar cartas para o usuário

@@ -1,0 +1,29 @@
+.trades-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 20px;
+
+    .trades-title {
+        font-size: 24pt;
+        color: var(--app-primary-text-color);
+    }
+
+    .trades-wrapper-container {
+        margin-top: 20px;
+
+        .trades {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .trades-action-buttons {
+                width: 100%;
+                max-width: fit-content;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    }
+}
