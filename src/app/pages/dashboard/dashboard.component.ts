@@ -6,11 +6,17 @@ import { UserService } from '../../services/user.service';
 import UserCards from '../../interfaces/UserCards';
 import { ButtonComponent } from '../../components/button/button.component';
 import { AlertService } from '../../components/alert/alert.service';
+import { FloatingButtonComponent } from '../../components/floating-button/floating-button.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, CardComponent, ButtonComponent],
+  imports: [
+    CommonModule,
+    CardComponent,
+    ButtonComponent,
+    FloatingButtonComponent  
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
