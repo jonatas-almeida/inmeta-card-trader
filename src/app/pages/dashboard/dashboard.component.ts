@@ -7,6 +7,7 @@ import UserCards from '../../interfaces/UserCards';
 import { ButtonComponent } from '../../components/button/button.component';
 import { AlertService } from '../../components/alert/alert.service';
 import { FloatingButtonComponent } from '../../components/floating-button/floating-button.component';
+import { TradeService } from '../../services/trade.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private tradeService: TradeService,
     private alertService: AlertService
   ) {}
 
@@ -95,7 +97,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async getTrades(): Promise<void> {
-    this.userService.getAllTrades(10, 1).subscribe((res) => {
+    this.tradeService.getAllTrades(10, 1).subscribe((res) => {
       this.trades = res.list;
     }, error => {
       console.log(error);

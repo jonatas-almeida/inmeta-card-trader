@@ -1,21 +1,134 @@
 <div class="trades-container">
     <h1 class="trades-title">Trades</h1>
-    <hr class="divider"/>
+    <hr class="divider" />
     <div class="trades-wrapper-container">
-        <app-card>
-            <div class="trades">
-                <div>
-                    <h2>Jonatas Almeida</h2>
-                    <p>Description test</p>
+        <div class="user-trades">
+            <h2>Solicitações criadas por você</h2>
+            <hr class="divider" />
+            <app-card *ngFor="let userTrade of this.userTrades; index as index;">
+                <div class="trades">
+                    <div>
+                        <h3>{{ userTrade.user.name }}</h3>
+                        <p>{{ this.convertDate(userTrade.createdAt) }}</p>
+                    </div>
+                    <div class="trade-actions">
+                        <app-button
+                            *ngIf="this.userInfo.id === userTrade.userId"
+                            label="Remover"
+                            (onClick)="this.removeTradeModal(userTrade.id)"></app-button>
+                    </div>
                 </div>
-                <div class="trades-action-buttons">
-                    <app-button
-                        label="Aceitar"></app-button>
-                    <app-button
-                        label="Recusar"
-                        kind="secondary"></app-button>
+                <div class="trade-card-container">
+                    <div class="trade-card-offering">
+                        <h3>OFERECENDO</h3>
+                        <div class="trade-card-wrapper left-side">
+                            <img class="trade-card" *ngFor="let tradeOfferingCard of userTrade.tradeCards; index as index;"
+                                [src]="tradeOfferingCard.type === 'OFFERING' ? tradeOfferingCard.card.imageUrl : ''" />
+                        </div>
+                    </div>
+                    <div class="trade-card-receiving">
+                        <h3>RECEBENDO</h3>
+                        <div class="trade-card-wrapper right-side">
+                            <img class="trade-card" *ngFor="let tradeReceivingCard of userTrade.tradeCards; index as index;"
+                                [src]="tradeReceivingCard.type === 'RECEIVING' ? tradeReceivingCard.card.imageUrl : ''" />
+                        </div>
+                    </div>
                 </div>
+            </app-card>
+            <div 
+                *ngIf="!this.userTrades.length"
+                class="trade-not-found">
+                Nenhuma solicitação foi aberta por você
             </div>
-        </app-card>
+        </div>
+
+        <div class="general-trades">
+            <h2>Todas as solicitações</h2>
+            <hr class="divider" />
+            <app-card *ngFor="let trade of tradeList; index as index;">
+                <div class="trades">
+                    <div>
+                        <h3>{{ trade.user.name }}</h3>
+                        <p>{{ this.convertDate(trade.createdAt) }}</p>
+                    </div>
+                    <div class="trade-actions">
+                        <app-button
+                            *ngIf="this.userInfo.id === trade.userId"
+                            label="Remover"
+                            (onClick)="this.removeTradeModal(trade.id)"></app-button>
+                            {{ trade.tradeId }}
+                    </div>
+                </div>
+                <div class="trade-card-container">
+                    <div class="trade-card-offering">
+                        <h3>OFERECENDO</h3>
+                        <div class="trade-card-wrapper left-side">
+                            <img class="trade-card" *ngFor="let tradeOfferingCard of trade.tradeCards; index as index;"
+                                [src]="tradeOfferingCard.type === 'OFFERING' ? tradeOfferingCard.card.imageUrl : ''" />
+                        </div>
+                    </div>
+                    <div class="trade-card-receiving">
+                        <h3>RECEBENDO</h3>
+                        <div class="trade-card-wrapper right-side">
+                            <img class="trade-card" *ngFor="let tradeReceivingCard of trade.tradeCards; index as index;"
+                                [src]="tradeReceivingCard.type === 'RECEIVING' ? tradeReceivingCard.card.imageUrl : ''" />
+                        </div>
+                    </div>
+                </div>
+            </app-card>
+
+        </div>
     </div>
 </div>
+
+<!-- Modal de Nova Solicitação -->
+<div class="modal-wrapper-container" *ngIf="this.openModal">
+    <div class="modal-content">
+        <h1>Nova solicitação</h1>
+        <div class="modal-trade-content">
+            <div class="user-cards-wrapper">
+                <h2>OFECERENDO</h2>
+                <div class="user-cards-container">
+                    <img class="user-cards" *ngFor="let userCards of this.tradeUserCards; index as index;"
+                        [src]="userCards.imageUrl" [ngStyle]="{
+                            'transform': userCards.isActive ? 'scale(1.1)' : 'scale(1.0)'
+                        }" (click)="this.selectCards('user-cards', userCards, index)" />
+                </div>
+            </div>
+            <div class="general-cards-wrapper">
+                <h2>RECEBENDO</h2>
+                <div class="general-cards-container">
+                    <img *ngFor="let generalCards of this.tradeGeneralCards; index as index;"
+                        class="general-cards {{ (generalCards.imageUrl === null) ? 'no-image' : '' }}"
+                        [src]="generalCards.imageUrl" [ngStyle]="{
+                            'transform': generalCards.isActive ? 'scale(1.1)' : 'scale(1.0)'
+                        }" (click)="this.selectCards('general-cards', generalCards, index)" />
+                </div>
+            </div>
+        </div>
+        <div class="trade-action-buttons">
+            <app-button label="Criar solicitação" (onClick)="this.createTrade()"></app-button>
+            <app-button label="Cancelar" kind="secondary" (onClick)="this.openModal = false;"></app-button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmação -->
+<div class="modal-wrapper-container" *ngIf="this.openModalConfirmation">
+    <div class="modal-content">
+        <h1>Remover solicitação</h1>
+        <p>Você realmente deseja remover esta solicitação?</p>
+        <div class="modal-actions">
+            <app-button
+                label="Cancelar"
+                kind="secondary"
+                (onClick)="this.openModalConfirmation = false"></app-button>
+            <app-button
+                label="Remover"
+                (onClick)="this.removeTrade()"></app-button>
+        </div>
+    </div>
+</div>
+
+<!-- Floating button -->
+<app-floating-button (onClick)="this.openModal = true;"></app-floating-button>

@@ -31,8 +31,4 @@ export class UserService {
   public addUserCard(cards: { cardIds: any[] }): Observable<any> {
     return this.http.post(`${this._baseUrl}/me/cards`, cards);
   }
-
-  public getAllTrades(registersPerPage: number, page: number): Observable<any> {
-    return this.http.get(`${this._baseUrl}/trades?rpp=${registersPerPage}&page=${page}`);
-  }
 }

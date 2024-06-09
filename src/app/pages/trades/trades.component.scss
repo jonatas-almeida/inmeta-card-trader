@@ -15,18 +15,182 @@
         flex-direction: column;
         gap: 15px;
 
-        .trades {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        h2 {
+            margin: 0;
+            color: var(--app-primary-text-color);
+        }
 
-            .trades-action-buttons {
+        .general-trades,
+        .user-trades {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            h2 {
+                margin-top: 30px;
+                margin-bottom: -30px;
+            }
+
+            .trades {
                 width: 100%;
-                max-width: fit-content;
                 display: flex;
                 align-items: center;
-                gap: 20px;
+                justify-content: space-between;
             }
+        }
+
+        
+    }
+
+    .trade-card-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        margin-top: 30px;
+
+        .trade-card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .trade-card-offering,
+        .trade-card-receiving {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            gap: 20px;
+
+            overflow-x: auto;
+
+            h3 {
+                text-align: center !important;
+                color: #222;
+            }
+
+            .trade-card-wrapper {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+
+        .trade-card-offering {
+            background-color: #fac4c4;
+        }
+
+        .trade-card-receiving {
+            background-color: #c4fac4;
+        }
+    }
+}
+
+/** Modal styles ---------------------------------- */
+.modal-wrapper-container {
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99 !important;
+
+    background-color: #fff;
+
+    .modal-content {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            font-size: 32pt;
+            color: var(--app-primary-text-color);
+        }
+
+        p {
+            font-size: 16pt;
+        }
+
+        .modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 30px;
+        }
+
+        .modal-trade-content {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(calc(50% - 20px), 1fr));
+            gap: 20px;
+            padding: 50px 100px;
+
+            .user-cards-wrapper,
+            .general-cards-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                h2 {
+                    margin-bottom: 10px;
+                }
+
+                .user-cards-container,
+                .general-cards-container {
+                    width: 100%;
+                    height: 100%;
+                    max-height: 500px;
+                    padding: 30px;
+                    background-color: #fff;
+
+                    overflow-y: auto;
+
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                    gap: 10px;
+
+                    .user-cards,
+                    .general-cards {
+                        width: 250px;
+                        height: auto;
+                        border: none;
+                        border-radius: 15px;
+                        cursor: pointer;
+                        transition: all .2s;
+
+                        &:hover {
+                            transform: scale(1.1) !important;
+                        }
+
+                        &.no-image {
+                            width: 250px;
+                            height: auto;
+                            background-color: #d6d6d6;
+                        }
+                    }
+                }
+            }
+
+            
+        }
+
+        .trade-action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
         }
     }
 }
