@@ -29,12 +29,14 @@
                 <img 
                     class="card" 
                     *ngFor="let card of userCards; index as index;"
+                    (click)="this.router.navigateByUrl('/trades')"
                     [src]="card.imageUrl"/>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal de adicionar cartas ao inventário -->
 <div class="modal-container" *ngIf="this.modalOpen">
     <h3>Selecione as cartas</h3>
     <div class="modal-cards-container">

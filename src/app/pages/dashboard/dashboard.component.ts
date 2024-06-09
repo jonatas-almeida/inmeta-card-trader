@@ -8,6 +8,7 @@ import { ButtonComponent } from '../../components/button/button.component';
 import { AlertService } from '../../components/alert/alert.service';
 import { FloatingButtonComponent } from '../../components/floating-button/floating-button.component';
 import { TradeService } from '../../services/trade.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,7 +34,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private userService: UserService,
     private tradeService: TradeService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
