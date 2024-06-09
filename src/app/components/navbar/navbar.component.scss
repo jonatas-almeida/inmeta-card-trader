@@ -15,6 +15,10 @@
 
     h1 {
         color: var(--app-secondary-text-color);
+
+        span {
+            font-weight: lighter;
+        }
     }
 
     .navbar-menu {
