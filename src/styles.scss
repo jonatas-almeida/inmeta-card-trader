@@ -74,3 +74,325 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #025c3f;
 }
+
+@media (max-width: 430px) {
+    // Navbar component
+    .navbar-container {
+        display: flex;
+        padding: 15px 20px !important;
+
+        h1 {
+            font-size: 14pt;
+        }
+
+        .navbar-menu {
+            gap: 20px !important;
+        }
+    }
+
+    // Dashboard page
+    .dashboard-container {
+        padding: 80px 20px !important;
+    }
+
+    .dashboard-current-inventory {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: center;
+
+        .card {
+            width: 150px !important;
+        }
+    }
+
+    // Trades page
+    .trades-container {
+        padding: 80px 20px !important;
+    }
+
+    .trade-card-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 0px !important;
+    }
+
+    .trade-card-offering,
+    .trade-card-receiving {
+        width: 100%;
+    }
+
+    // Modal
+    .modal-container {
+        width: 100% !important;
+        height: 100% !important;
+
+        h3 {
+            font-size: 32pt !important;
+            top: 5% !important;
+        }
+
+        .modal-cards-container {
+            width: 100%;
+            max-width: 100px !important;
+        }
+
+        .modal-cards-footer {
+            bottom: 10% !important;
+        }
+    }
+
+    .modal-content {
+        display: flex !important;
+        flex-direction: column !important;
+
+        h1 {
+            display: none;
+        }
+    }
+
+    .modal-trade-content {
+        width: 100% !important;
+        height: fit-content !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    .user-cards-container,
+    .general-cards-container {
+        width: 100% !important;
+        max-height: 300px !important;
+        padding: 10px !important;
+        gap: 10px !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    .user-cards,
+    .general-cards {
+        width: 200px !important;
+    }
+
+    // Login page
+    .login-form {
+        box-shadow: none !important;
+        padding: 20px !important;
+    }
+
+    // Register page
+    .register-form-container {
+        box-shadow: none !important;
+        padding: 20px !important;
+    }
+}
+
+@media ((min-width: 450px) and (max-width: 500px)) {
+    // Navbar component
+    .navbar-container {
+        display: flex;
+        padding: 15px 20px !important;
+
+        h1 {
+            font-size: 14pt;
+        }
+
+        .navbar-menu {
+            gap: 20px !important;
+        }
+    }
+
+    // Dashboard page
+    .dashboard-container {
+        padding: 100px 20px !important;
+    }
+
+    .dashboard-current-inventory {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: center;
+
+        .card {
+            width: 200px !important;
+        }
+    }
+
+    // Trades page
+    .trades-container {
+        padding: 80px 20px !important;
+    }
+
+    .trade-card-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 0px !important;
+    }
+
+    .trade-card-offering,
+    .trade-card-receiving {
+        width: 100%;
+    }
+
+    // Modal
+    .modal-container {
+        width: 100% !important;
+        height: 100% !important;
+
+        h3 {
+            font-size: 32pt !important;
+            top: 20% !important;
+        }
+
+        .modal-cards-container {
+            width: 100%;
+            max-width: 100px !important;
+        }
+
+        .modal-cards-footer {
+            bottom: 15% !important;
+        }
+    }
+
+    .modal-content {
+        display: flex !important;
+        flex-direction: column !important;
+
+        h1 {
+            display: none;
+        }
+    }
+
+    .modal-trade-content {
+        width: 100% !important;
+        height: fit-content !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    .user-cards-container,
+    .general-cards-container {
+        width: 100% !important;
+        max-height: 300px !important;
+        padding: 10px !important;
+        gap: 10px !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    .user-cards,
+    .general-cards {
+        width: 200px !important;
+    }
+}
+
+@media (max-width: 375px) {
+    // Navbar component
+    .navbar-container {
+        display: flex;
+        padding: 15px 20px !important;
+
+        h1 {
+            font-size: 12pt;
+        }
+
+        .navbar-menu {
+            gap: 15px !important;
+        }
+    }
+
+    // Modal
+    .modal-content {
+        display: flex !important;
+        flex-direction: column !important;
+
+        h1 {
+            display: none;
+        }
+    }
+
+    .modal-trade-content {
+        width: 100% !important;
+        height: fit-content !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    .user-cards-container,
+    .general-cards-container {
+        width: 100% !important;
+        max-height: 200px !important;
+        padding: 10px !important;
+        gap: 10px !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    .user-cards,
+    .general-cards {
+        width: 150px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    // Navbar component
+    .navbar-container {
+        display: flex;
+        padding: 15px 20px !important;
+
+        h1 {
+            font-size: 12pt;
+        }
+
+        .navbar-menu {
+            gap: 10px !important;
+        }
+    }
+
+    // Dashboard page
+    .dashboard-container {
+        padding: 80px 10px !important;
+    }
+
+    .dashboard-current-inventory {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        justify-content: center;
+
+        .card {
+            width: 150px !important;
+        }
+    }
+
+    // Trades page
+    .trades-container {
+        padding: 80px 10px !important;
+    }
+
+    .trade-card-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 0px !important;
+    }
+}
