@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TradesComponent } from './pages/trades/trades.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
     {
@@ -20,11 +21,13 @@ export const routes: Routes = [
     },
     {
         path: "dashboard",
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "trades",
-        component: TradesComponent
+        component: TradesComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "",
