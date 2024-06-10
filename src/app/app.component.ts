@@ -32,6 +32,10 @@ export class AppComponent implements DoCheck {
     {
       label: "Trades",
       route: "/trades"
+    },
+    {
+      label: "Log out",
+      route: "/auth/login"
     }
   )
 }

@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component, DoCheck, OnInit } from '@angular/core';
 import { CardComponent } from '../../components/card/card.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { FloatingButtonComponent } from '../../components/floating-button/floating-button.component';
@@ -9,7 +9,6 @@ import { UserService } from '../../services/user.service';
 import UserCards from '../../interfaces/UserCards';
 import TradeCards from '../../interfaces/TradeCards';
 import User from '../../interfaces/User';
-import Trade from '../../interfaces/Trade';
 
 @Component({
   selector: 'app-trades',
@@ -23,7 +22,7 @@ import Trade from '../../interfaces/Trade';
   templateUrl: './trades.component.html',
   styleUrl: './trades.component.scss'
 })
-export class TradesComponent implements OnInit, AfterContentInit {
+export class TradesComponent implements AfterContentInit, DoCheck {
 
   tradeList = new Array();
   tradeCreationDate = new Date();
@@ -43,7 +42,8 @@ export class TradesComponent implements OnInit, AfterContentInit {
   constructor(
     private userServices: UserService,
     private tradeService: TradeService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private cdr: ChangeDetectorRef
   ) {
     this.userInfo = {
       id: '',
@@ -62,11 +62,12 @@ export class TradesComponent implements OnInit, AfterContentInit {
     }
   }
 
-  ngOnInit(): void {
-    this.getUserInfo();
+  ngDoCheck(): void {
+    this.cdr.detectChanges();
   }
 
   ngAfterContentInit(): void {
+    this.getUserInfo();
     this.getTrades();
     this.getAllRegisteredCards();
   }
@@ -91,7 +92,12 @@ export class TradesComponent implements OnInit, AfterContentInit {
       }
       this.getAllUserCards();
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível retornar as cartas, tente novamente mais tarde',
+        kind: "danger"
+      });
     });
   }
 
@@ -111,7 +117,7 @@ export class TradesComponent implements OnInit, AfterContentInit {
       this.alertService.open({
         id: 'alert-component',
         label: 'Erro!',
-        description: 'Não foi possível criar retornar as cartas, tente novamente mais tarde',
+        description: 'Não foi possível retornar as cartas, tente novamente mais tarde',
         kind: "danger"
       });
     });
@@ -133,7 +139,7 @@ export class TradesComponent implements OnInit, AfterContentInit {
       this.alertService.open({
         id: 'alert-component',
         label: 'Erro!',
-        description: 'Não foi possível criar retornar as cartas, tente novamente mais tarde',
+        description: 'Não foi possível retornar as cartas, tente novamente mais tarde',
         kind: "danger"
       });
     });

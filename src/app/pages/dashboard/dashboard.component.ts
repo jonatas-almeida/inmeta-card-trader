@@ -50,7 +50,12 @@ export class DashboardComponent implements OnInit {
       this.getCurrentUserCards();
       this.getTrades();
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível retornar as informações do usuário, tente novamente mais tarde',
+        kind: "danger"
+      });
     });
   }
 
@@ -59,7 +64,12 @@ export class DashboardComponent implements OnInit {
     this.userService.getUserCards().subscribe((res) => {
       this.userCards = res.reverse();
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível retornar as cartas, tente novamente mais tarde',
+        kind: "danger"
+      });
     });
   }
 
@@ -74,7 +84,12 @@ export class DashboardComponent implements OnInit {
 
       this.allCards = res.list;
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível retornar as cartas, tente novamente mais tarde',
+        kind: "danger"
+      });
     });
   }
 
@@ -94,15 +109,25 @@ export class DashboardComponent implements OnInit {
         kind: "success"
       });
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível adicionar as cartas no seu invetário, tente novamente mais tarde',
+        kind: "danger"
+      });
     })
   }
 
   async getTrades(): Promise<void> {
-    this.tradeService.getAllTrades(10, 1).subscribe((res) => {
+    this.tradeService.getAllTrades(30, 1).subscribe((res) => {
       this.trades = res.list;
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível retornar as Trades, tente novamente mais tarde',
+        kind: "danger"
+      });
     });
   }
 
