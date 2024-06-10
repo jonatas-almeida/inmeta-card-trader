@@ -24,11 +24,6 @@
     src: url("./assets/fonts/Nunito-Regular.ttf");
 }
 
-@font-face {
-    font-family: AppSecondaryFont;
-    src: url("./assets/fonts/Lora/Lora-Regular.ttf");
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -75,6 +70,7 @@ body {
     background: #025c3f;
 }
 
+/** Media Queries --------------------------------------------*/
 @media (max-width: 430px) {
     // Navbar component
     .navbar-container {

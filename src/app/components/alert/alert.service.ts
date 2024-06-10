@@ -71,8 +71,6 @@ export class AlertService {
       setTimeout(() => {
         this.setAlertShow(false);
       }, this.getAlertDuration());
-
-      console.log(alertComponentRef.style.visibility);
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { InputComponent } from '../../../components/input/input.component';
 import { ButtonComponent } from '../../../components/button/button.component';
 import { Router } from '@angular/router';

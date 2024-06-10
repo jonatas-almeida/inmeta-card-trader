@@ -77,7 +77,12 @@ export class TradesComponent implements AfterContentInit, DoCheck {
     this.userServices.getUserInformation().subscribe((res) => {
       	this.userInfo = res;
     }, error => {
-      console.log(error);
+      this.alertService.open({
+        id: 'alert-component',
+        label: 'Erro!',
+        description: 'Não foi possível retornar as informações do usuário, tente novamente mais tarde',
+        kind: "danger"
+      });
     });
   }
 

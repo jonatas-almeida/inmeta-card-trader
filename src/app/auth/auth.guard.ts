@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate {
     }
   }
 
+  // Valida o token
   private isTokenValid(token: string): boolean {
     try {
       const decodedToken: any = jwtDecode(token, undefined);
