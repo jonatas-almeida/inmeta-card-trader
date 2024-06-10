@@ -14,7 +14,7 @@
                     <p>{{ this.userCards.length }}</p>
                 </div>
             </app-card>
-            <app-card (click)="this.router.navigateByUrl('/trades')">
+            <app-card style="cursor: pointer;" (click)="this.router.navigateByUrl('/trades')">
                 <div class="dashboard-card">
                     <h3>Solicitações de troca</h3>
                     <p>{{ this.trades.length }}</p>
